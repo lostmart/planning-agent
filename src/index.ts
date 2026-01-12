@@ -1,17 +1,16 @@
-import express, { Request, Response } from 'express';
-import dotenv from 'dotenv';
+import express, { Request, Response } from "express"
+import router from "./routes"
+import { config } from "./config/env"
 
-dotenv.config();
+const app = express()
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+app.use(express.json())
+app.use("/", router)
 
-app.use(express.json());
+app.get("/api/health", (req: Request, res: Response) => {
+	res.json({ status: "Server is running" })
+})
 
-app.get('/api/health', (req: Request, res: Response) => {
-  res.json({ status: 'Server is running' });
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+app.listen(config.port, () => {
+	console.log(`Server running on http://localhost:${config.port}`)
+})
