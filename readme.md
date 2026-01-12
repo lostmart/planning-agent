@@ -42,6 +42,8 @@ src/
 
 Reference: [Mendix Component-Based Architecture](https://www.mendix.com/blog/what-is-component-based-architecture/)
 
+![project folder](./architecture.png)
+
 ## Setup
 
 ```bash
@@ -91,17 +93,6 @@ DELETE /agent/:id
 4. Create routes in `src/routes/`
 5. Add tools (Google Sheets, etc.) in `src/components/tools/`
 
-## Next Steps
-
-- [ ] Implement basic Agent class
-- [ ] Add AgentManager for multiple agents
-- [ ] Create AgentService for orchestration
-- [ ] Add Google Sheets integration
-- [ ] Implement lesson plan generator
-- [ ] Add error handling middleware
-- [ ] Create validation middleware
-- [ ] Add logging utility
-
 ## Setup
 
 ```bash
@@ -133,20 +124,5 @@ ANTHROPIC_API_KEY=your-api-key-here
 ## Test
 
 ```bash
-curl http://localhost:3000/health
+curl http://localhost:3000/api/health
 ```
-
-## Project Structure
-
-```text
-├── src/
-│   └── index.ts          # Main server file
-├── .env                  # Environment variables
-├── .gitignore
-├── nodemon.json         # Nodemon config
-├── package.json         # Dependencies & scripts
-├── tsconfig.json        # TypeScript config
-└── README.md
-```
-
-![project folder](./architecture.png)
