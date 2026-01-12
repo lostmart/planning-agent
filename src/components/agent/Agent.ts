@@ -27,11 +27,11 @@ export class Agent {
 
 		try {
 			const response = await client.messages.create({
-				model: "claude-opus-4-20250514",
+				model: "claude-haiku-3-5-20241022",
 				max_tokens: 1000,
 				system: `You are a helpful lesson planning agent. 
-When given course parameters, generate a structured lesson plan.
-Be concise and practical.`,
+						When given course parameters, generate a structured lesson plan.
+						Be concise and practical.`,
 				messages: this.conversationHistory,
 			})
 

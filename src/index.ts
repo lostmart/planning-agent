@@ -5,10 +5,14 @@ import { config } from "./config/env"
 const app = express()
 
 app.use(express.json())
-app.use("/", router)
+app.use("/api/v1", router)
 
-app.get("/api/health", (req: Request, res: Response) => {
-	res.json({ status: "Server is running" })
+app.get("/", (req: Request, res: Response) => {
+	res.json({
+		success: true,
+		status: "Server is running",
+		timestamp: new Date().toISOString(),
+	})
 })
 
 app.listen(config.port, () => {
